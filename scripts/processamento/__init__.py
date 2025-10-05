@@ -1,6 +1,11 @@
 """
-Nome do Script: __init__.py
-Finalidade:    Módulo de inicialização.
-Autor:         Fernando Neto
-Data:          2025-10-04
+Pacote Python: processamento
+Auto-gerado para importar automaticamente os módulos.
 """
+
+from . import processar_all
+from . import processar_camara
+from . import processar_despesas
+from . import processar_prefeitura
+from . import processar_tce
+from . import processa_hierarquico

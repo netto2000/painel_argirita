@@ -1,6 +1,8 @@
 """
-Nome do Script: __init__.py
-Finalidade:    Módulo de inicialização.
-Autor:         Fernando Neto
-Data:          2025-10-04
+Pacote Python: scripts
+Auto-gerado para importar automaticamente os módulos.
 """
+
+from . import config
+from . import executar_tudo
+from . import orquestrador

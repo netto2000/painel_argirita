@@ -1,0 +1,21 @@
+import os
+import json
+
+# Diretório onde o arquivo será criado
+diretorio = os.path.join('dados', 'processados', 'camara')
+os.makedirs(diretorio, exist_ok=True)
+
+# Caminho completo do arquivo JSON
+arquivo = os.path.join(diretorio, 'dados_camara_limpos.json')
+
+# Dados de exemplo para guardar no JSON
+dados_exemplo = [
+    {"id": 1, "nome": "Vereador A", "partido": "Partido X", "despesas": 12345.67, "ano": 2025},
+    {"id": 2, "nome": "Vereador B", "partido": "Partido Y", "despesas": 23456.78, "ano": 2025}
+]
+
+# Cria o arquivo JSON com o conteúdo exemplo
+with open(arquivo, 'w', encoding='utf-8') as f:
+    json.dump(dados_exemplo, f, ensure_ascii=False, indent=4)
+
+print(f"Arquivo JSON de exemplo criado em: {arquivo}")

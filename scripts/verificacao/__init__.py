@@ -1,6 +1,8 @@
 """
-Nome do Script: __init__.py
-Finalidade:    Módulo de inicialização.
-Autor:         Fernando Neto
-Data:          2025-10-04
+Pacote Python: verificacao
+Auto-gerado para importar automaticamente os módulos.
 """
+
+from . import diagnostico_sistema
+from . import verificar_integridade
+from . import verificar_integridade_hierarquico
