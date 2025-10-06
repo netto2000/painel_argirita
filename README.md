@@ -1,115 +1,33 @@
-Painel Argirita - Projeto de Análise Financeira e Fiscal Municipal
-Sumário
-Visão Geral
-Estrutura do Projeto
-Configuração do Ambiente
-Fluxo de Execução
-Módulos Principais
-Indicadores Financeiros
-Dashboard Interativo
-Contribuição e Contato
+# Painel Argirita
 
-Visão Geral
-Projeto para coletar, processar e analisar dados financeiros, contábeis e fiscais do município de Argirita (MG), com o objetivo de gerar indicadores para suporte à fiscalização pública via dashboards e relatórios consolidados.
+## Descrição
 
-Estrutura do Projeto
-text
-Painel_Argirita/
-├── dados/
-│   ├── brutos/             # Dados coletados brutos em JSON, HTML etc
-│   ├── processados/        # Dados transformados, em CSV
-│   ├── indicadores/        # Indicadores financeiros calculados
-│   ├── relatorios/         # Relatórios consolidados gerados
-├── logs/                   # Logs de execução dos scripts
-├── scripts/
-│   ├── coleta/             # Scripts para coleta de dados
-│   ├── processamento/      # Processamento e transformação de dados
-│   ├── comparacao/         # Comparações entre dados e versões
-│   ├── verificacao/        # Verificações e auditorias de integridade
-│   ├── analise/            # Geração de indicadores financeiros
-│   ├── exportacao/         # Geração de relatórios consolidados
-│   ├── visualizacao/       # Dashboards Streamlit e interfaces interativas
-│   ├── utilitarios/        # Funções e helpers reutilizáveis
-│   ├── orquestrador.py     # Script para execução completa do fluxo
-├── tests/                  # Testes unitários e funcionais (planejado)
-├── venv/                   # Ambiente virtual Python
-├── requirements.txt        # Dependências do projeto
-└── README.md               # Este arquivo
-Configuração do Ambiente
-Clonar o repositório e entrar no diretório do projeto.
+Projeto de coleta, processamento, comparação e visualização de dados públicos da Prefeitura, Câmara, SICONFI e TCE relacionados ao município de Argirita.
 
-Criar e ativar o ambiente virtual Python (recomendado Python 3.10+):
+O Painel visa fornecer análise e indicadores integrados para facilitar o acompanhamento da gestão pública local.
 
-bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Linux/Mac
-source venv/bin/activate
-Instalar dependências:
+---
 
-bash
-pip install -r requirements.txt
-Fluxo de Execução
-Para rodar todo o fluxo integrado (coleta, processamento, análise, exportação e verificação), use o orquestrador:
+## Estrutura do Projeto
 
-bash
-python scripts/orquestrador.py
-Isso executa na ordem:
+- `scripts/coleta/` - Scripts para coleta de dados das APIs públicas.
+- `scripts/processamento/` - Scripts para a limpeza e processamento dos dados coletados.
+- `scripts/comparacao/` - Scripts para realizar comparações entre fontes diferentes.
+- `scripts/verificacao/` - Scripts para verificar integridade e consistência dos dados.
+- `scripts/visualizacao/` - Código para a dashboard e visualização dos dados (usando Streamlit).
 
-Coleta de dados (prefeitura, câmara, TCE)
+---
 
-Processamento hierárquico (JSON para CSV)
+## Pré-requisitos
 
-Geração de indicadores financeiros
+- Python 3.x
+- Bibliotecas Python listadas no `requirements.txt`  
+  (instale com `pip install -r requirements.txt`)
+- Conexão com a internet para acessar as APIs públicas
 
-Geração de relatórios consolidados
+---
 
-Verificação da integridade dos dados
+## Como rodar
 
-Módulos Principais
-scripts/coleta/ - extração dos dados públicos das fontes oficiais
-
-scripts/processamento/ - limpeza e transformação dos dados
-
-scripts/analise/gerar_indicadores.py - cálculos dos indicadores financeiros e fiscais
-
-scripts/exportacao/relatorio_consolidado.py - gera resumos estatísticos para análise
-
-scripts/visualizacao/dashboard_indicadores.py - dashboard interativo via Streamlit
-
-scripts/utilitarios/ - utilitários de logs, salvamento, requisições
-
-Indicadores Financeiros
-O módulo de indicadores contempla:
-
-Liquidez Corrente
-
-Grau de Endividamento (em desenvolvimento)
-
-Resultado Primário
-
-Receita Própria vs Receita Total
-
-Despesa com Pessoal / Receita Corrente Líquida
-
-Aplicação em Educação (%)
-
-Aplicação em Saúde (%)
-
-Dashboard Interativo
-Para visualizar os indicadores em dashboard:
-
-bash
-streamlit run scripts/visualizacao/dashboard_indicadores.py
-Os dados são atualizados após a execução do módulo de indicadores.
-
-Contribuição e Contato
-Para dúvidas, melhorias ou contribuições:
-
-[E-mail do responsável do projeto]
-
-[Repositório GitHub - link]
-
-Este README serve como roteiro diário para manter foco e continuidade do projeto Painel_Argirita.
+1. Clone este repositório:
 
