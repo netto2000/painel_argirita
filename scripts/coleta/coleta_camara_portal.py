@@ -39,7 +39,9 @@ def coletar_receitas_orcamentarias_camara(ano):
 
     # Nome do arquivo de saída
     nome_arquivo = f"camara_receitas_orcamentarias_{ano}.json"
-    diretorio_saida = "dados\\brutos\\camara"
+    # Usa separador de diretório independente de SO
+    import os
+    diretorio_saida = os.path.join("dados", "brutos", "camara")
 
     # Chama nossa ferramenta para fazer o trabalho sujo
     sucesso = extrair_dados_endpoint(
