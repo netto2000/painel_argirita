@@ -28,12 +28,15 @@ def main():
         "Referer": f"{URL_DADOS_ABERTOS_CAMARA}/dados-abertos/consulta"
     })
 
+    # Segurança: verificação TLS ativa por padrão; permite opt-out explícito via env.
+    verify_ssl = os.environ.get("ALLOW_INSECURE_HTTP", "0") not in {"1", "true", "True"}
+
     for nome, url in URLS.items():
         out_path = os.path.join(DIR_CAMARA_API, f"{nome}.json")
         try:
-            resp = session.post(url, timeout=TIMEOUT_REQUESTS, verify=False)
+            resp = session.post(url, timeout=TIMEOUT_REQUESTS, verify=verify_ssl)
             if resp.status_code == 405 or not resp.text:
-                resp = session.get(url, timeout=TIMEOUT_REQUESTS, verify=False)
+                resp = session.get(url, timeout=TIMEOUT_REQUESTS, verify=verify_ssl)
             resp.raise_for_status()
             try:
                 data = resp.json()

@@ -13,11 +13,12 @@ from datetime import datetime
 
 # Configurações globais de logging e parâmetros da API
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-ID_CLIENTE = 16  # Código IBGE ou código cliente para Argirita conforme documentação
+# Permite configurar dinamicamente o cliente via variável de ambiente
+ID_CLIENTE = int(os.environ.get("ID_CLIENTE", "16"))
 ANO_INICIAL = 2017
 ANO_FINAL = datetime.now().year
 
-BASE_URL_TEMPLATE = "https://dadosabertos-portalfacil.azurewebsites.net/16/{endpoint}"
+BASE_URL_TEMPLATE = "https://dadosabertos-portalfacil.azurewebsites.net/{id}/{endpoint}"
 
 def salvar_json(dados, arquivo):
     os.makedirs(os.path.dirname(arquivo), exist_ok=True)
@@ -39,7 +40,7 @@ def coletar_categoria(endpoint: str, nome_arquivo: str, ano_inicio=ANO_INICIAL, 
                 "page": pagina,
                 "pageSize": 100
             }
-            url = BASE_URL_TEMPLATE.format(endpoint=endpoint)
+            url = BASE_URL_TEMPLATE.format(id=ID_CLIENTE, endpoint=endpoint)
             try:
                 response = requests.get(url, params=params, timeout=30)
                 response.raise_for_status()
