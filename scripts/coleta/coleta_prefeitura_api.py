@@ -16,7 +16,8 @@ def main():
     endpoints = ["receitas", "despesas", "servidores", "obras", "contratos"]
     for endpoint in endpoints:
         for ano in ANOS:
-            url = f"{URL_DADOS_ABERTOS_PREF}/api/{endpoint}?ano={ano}"
+            # Evita duplicar o segmento "/api" pois URL_DADOS_ABERTOS_PREF já inclui "/api"
+            url = f"{URL_DADOS_ABERTOS_PREF}/{endpoint}?ano={ano}"
             out_path = os.path.join(DIR_PREFEITURA_API, f"{endpoint}_{ano}.json")
             sucesso = fetch_and_save_json(url, out_path)
             if not sucesso:
