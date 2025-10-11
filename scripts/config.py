@@ -14,6 +14,9 @@ DIR_CAMARA_API = DIR_BRUTOS / "camara"
 DIR_PREFEITURA_API = DIR_BRUTOS / "prefeitura"
 DIR_SICONFI_API = DIR_BRUTOS / "siconfi"
 DIR_TCE_API = DIR_BRUTOS / "tce"
+# Alias utilizado por coletores que salvam HTML do portal do TCE
+# Mantemos compatibilidade com scripts que importam `DIR_TCE_PORTAL`
+DIR_TCE_PORTAL = DIR_TCE_API
 
 DIR_CAMARA_PROC = DIR_PROCESSADOS / "camara"
 DIR_PREFEITURA_PROC = DIR_PROCESSADOS / "prefeitura"
